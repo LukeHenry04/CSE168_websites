@@ -11,7 +11,7 @@ The Navier Stokes Equation for Incompressible Fluids with constant viscosity is:
 
 (source: wikipedia)
 
-Where `p` is pressure, `ro` is density which can be set to 1 as it is constant and unitless, and `v` is viscosity which can also be constant and very low, such as 0.0001 for gasses like air and smoke.
+Where `p` is pressure, `ρ` is density which can be set to 1 as it is constant and unitless, and `v` is viscosity which can also be constant and very low, such as 0.0001 for gasses like air and smoke.
 
 The main assumption for incompressible fluids is that the divergence of the velocity vield at any point is 0, so that density is constant. The main term in the equation is the Gradient of the pressure field, and in order for this assumption to hold, the following Poisson Equation for pressure must be solved to find the correct pressure field values:
 
