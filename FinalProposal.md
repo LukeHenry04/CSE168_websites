@@ -52,6 +52,8 @@ I have the following gifs demonstrating (in order) advection with a constant vel
 ![3](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_GravBuoy_Rise.gif?raw=true)
 
 
+Also note that the pixelated nature of the images is due to a lack of interpolation between grid points, what I have rendered is the grid itself for now. 
+
 
 
 
