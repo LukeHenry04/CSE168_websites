@@ -19,6 +19,15 @@ The main assumption for incompressible fluids is that the divergence of the velo
 
 (source: wikipedia)
 
+This process will involve solving an extremely large linear matrix equation `Ap = b` where A is a sparce matrix that has many 0's. From my understanding, the process of solving this requires using an iterative pressure solver, and will likely be the most difficult part of the simulator, but also the most important. 
+
+It is also important to note that sampling between grid points requires some form of interpolation for smoother results, which will also have to be implemented. 
+
+Currently, my project has the following steps implemented:
+- a
+- b
+- c
+
 
 
 
