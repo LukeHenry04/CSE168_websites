@@ -8,6 +8,7 @@ Semi-Lagrangian advection is a method for simulating fluid flow that uses a grid
 The Navier Stokes Equation for Incompressible Fluids with constant viscosity is:
 
 ![Nevier Stokes Equation from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/e5e8521f648a2a1f7525f4f0dd166bbfbb079b0f)
+
 (source: wikipedia)
 
 The main assumption for incompressible fluids is that the divergence of the velocity vield at any point is 0, so that density is constant. The main term in the equation is the 
