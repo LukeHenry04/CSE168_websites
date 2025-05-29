@@ -41,7 +41,7 @@ The rest of my project will involve the following major steps:
 - Creating smoke emmiter objects that are handled collectively, emmiting with a radius, temperature, and smoke density as described in scene file commands
 
 I found this resource from Stanford describing a particular method for rendering smoke that has sources that link to the basics of fluid simulation as well, which I have been referencing with respect to the math.
-[Fedkiw et al](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://web.stanford.edu/class/cs237d/smoke.pdf)
+[Fedkiw et al](https://web.stanford.edu/class/cs237d/smoke.pdf)
 
 I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
 
