@@ -49,5 +49,13 @@ The last step is to find the transmittance between the camera and the point alon
 
 Here are some of the resulting images and gifs:
 
+![F1](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeLerp.gif?raw=true)
+
+![F2](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeWindRightwardLerp.gif?raw=true)
+
+![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) (Note that the artifacts are mainly from the small step size and large grid in this one)
+
+
+
 
 
