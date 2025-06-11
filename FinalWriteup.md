@@ -53,7 +53,17 @@ Here are some of the resulting images and gifs:
 
 ![F2](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeWindRightwardLerp.gif?raw=true)
 
-![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) (Note that the artifacts are mainly from the small step size and large grid in this one)
+![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) 
+(Note the above 3 use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8)
+
+Here is a selection of frames from the second animation, rendered with cubic interpolation:
+
+![F4](https://github.com/LukeHenry04/CSE168_websites/blob/main/CubicPlume.gif?raw=true)
+
+![F5](https://github.com/LukeHenry04/CSE168_websites/blob/main/20smoke.png?raw=true) ![F6](https://github.com/LukeHenry04/CSE168_websites/blob/main/21smoke.png?raw=true) ![F7](https://github.com/LukeHenry04/CSE168_websites/blob/main/22smoke.png?raw=true)
+
+
+
 
 
 
