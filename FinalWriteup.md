@@ -51,11 +51,11 @@ Here are some of the resulting images and gifs:
 
 ![F1](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeLerp.gif?raw=true)
 
-![F2](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeWindRightwardLerp.gif?raw=true)
+![F2](https://github.com/LukeHenry04/CSE168_websites/blob/main/PlumeWindRightwardLerp.gif?raw=true) ![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) 
+
 
 ![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) ![F3_1](https://github.com/LukeHenry04/CSE168_websites/blob/main/SmokeFloor1.png?raw=true)
 
-![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) 
 
 (Note that the above images use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8. Also the last animation has artifacts from the large raymarching steps, but I figured it was worth including)
 
