@@ -63,6 +63,8 @@ Here is a selection of frames from the second animation, rendered with cubic int
 
 ![F5](https://github.com/LukeHenry04/CSE168_websites/blob/main/20smoke.png?raw=true) ![F6](https://github.com/LukeHenry04/CSE168_websites/blob/main/21smoke.png?raw=true) ![F7](https://github.com/LukeHenry04/CSE168_websites/blob/main/22smoke.png?raw=true)
 
+![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) (the frame before, rendered with linear interpolation)
+
 
 
 
