@@ -43,10 +43,5 @@ After implementing the main fluid simulator, I also added a vortex confinement f
 
 <img src="/LerpVortex.gif" alt="Alt Text" width="400" height="400"> (rendered with darker smoke and linear interpolation)
 
-
-I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
-
-Also note that the pixelated nature of the images is due to a lack of interpolation between grid points, what I have rendered is the grid itself for now. 
-
-
+Once the simulation was running well, the last feature I implemented was simple volumetric rendering. The raytracer uses an integrater called "smokeOnly" which marches along each ray and calculates monte carlo direct lighting for each point along the main ray. It does this my sending out rays to each light (stratified and sampled using the same techniques as in homework 2), but instead of using a brdf, it first integrates the smoke field along the ray to get an amount of smoke between the point and the light. 
 
