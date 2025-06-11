@@ -68,7 +68,7 @@ Here is the frame before rendered with linear interpolation to show the differen
 ![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) 
 
 
-(Lastly, for grading, the vast majority of the changes to the raytracer are in the two new files SmokeField.h and SmokeField.cpp, with a minimal amount of changes to Raytracer.cpp::main which implements volumetric rendering through a call to SmokeField.cpp::RenderSmoke and handles multiple-frame renders)
+(Lastly, for grading, the vast majority of the changes to the raytracer are in the two new files SmokeField.h and SmokeField.cpp, with a minimal amount of changes to Raytracer.cpp::main which handles multi-frame renders and implements volumetric rendering and the main fluid simulation steps through calls to methods in SmokeField.cpp)
 
 
 
