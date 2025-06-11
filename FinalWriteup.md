@@ -1,7 +1,11 @@
 # CSE 168 Final - Fluid Simulation and Volumetric Rendering
 ## Luke Henry
 
-For my final project, I implemented a semi-lagrangian fluid simulator to render smoke using volumetric rendering. The project uses a SmokeField class that contains a 3D vector field of flow velocities and scalar fields for pressure, temperature, and smoke density. The fields change based on the Incompressible Navier Stokes equation, with added external forces for buoyancy, gravity, and vortex confinement to correct for the inconsistencies and inacuracies of semi-lagrangian advection and the assumed constant densities. The simulator allows enables the pathtracer to render multiple frames as the smoke fields change over small time steps, which have then been compiled into gifs. 
+For my final project, I implemented a semi-lagrangian fluid simulator to render smoke using volumetric rendering. The project uses a SmokeField class that contains a 3D vector field of flow velocities and scalar fields for pressure, temperature, and smoke density. The fields change based on the Incompressible Navier Stokes equation, with added external forces for buoyancy, gravity, and vortex confinement to correct for the inconsistencies and inacuracies of semi-lagrangian advection and the assumtion of constant density. The simulator allows enables the pathtracer to render multiple frames as the smoke fields change over small time steps, which have then been compiled into gifs. 
+
+I found this paper from Stanford describing a particular method for rendering smoke that has sources that link to the basics of fluid simulation as well, which I have been referencing with respect to the math. I tried to use some of the same methods and equations used in the paper, including the Conjugate Gradient method for solving the pressure equation, monotonic cubic interpolation instead of trilinear interpolation, and the Henyey-Greenstein function for the phase probability in my volumetric rendering method. 
+[Fedkiw et al](https://web.stanford.edu/class/cs237d/smoke.pdf)
+
 
 Semi-Lagrangian advection is a method for simulating fluid flow that uses a grid of flow velocities. It relies on the assumptions that all relevant fields follow the flow velocity field (are advected through it) and that the velocity at a given point does not change much over the course of a time step. It is used to generate and update a discrete grid of points based on estimates where an analytical or continuous solution to the Navier Stokes equation is unstable or non-existent. 
 
@@ -40,8 +44,6 @@ The rest of my project will involve the following major steps:
 - Either adding the volumetric rendering into regular pathtraced scenes, or focusing on getting higher quality smoke renders, including "collisions" with simple geometry
 - Creating smoke emmiter objects that are handled collectively, emmiting with a radius, temperature, and smoke density as described in scene file commands
 
-I found this resource from Stanford describing a particular method for rendering smoke that has sources that link to the basics of fluid simulation as well, which I have been referencing with respect to the math.
-[Fedkiw et al](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://web.stanford.edu/class/cs237d/smoke.pdf)
 
 I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
 
