@@ -70,7 +70,7 @@ Here is a selection of frames from the same animations, rendered with cubic inte
 
 
 
-(Lastly, for grading, the vast majority of the changes to the raytracer are in the two new files SmokeField.h and SmokeField.cpp, with a minimal amount of changes to Raytracer.cpp::main which handles multi-frame renders and implements volumetric rendering and the main fluid simulation steps through calls to methods in SmokeField.cpp)
+(Lastly, for grading, the majority of the changes to the raytracer are in the two new files SmokeField.h and SmokeField.cpp)
 
 
 
