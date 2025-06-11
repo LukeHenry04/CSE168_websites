@@ -33,15 +33,15 @@ This process involves solving an extremely large linear matrix equation `Ap = b`
 
 With the solver applied (and simple linear interpolation), we get results like this:
 
-<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/Smoke_bottom_cg_lerp.gif" alt="Alt Text" width="200" height="200">
+<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/Smoke_bottom_cg_lerp.gif?raw=true" alt="Alt Text" width="200" height="200">
 
 When sampling a point within the grid, interpolation is used to blend between corners of each voxel. Linear interpolation, shown above, works but ends up blending away a lot of finer details. I implemented the monotonic cubic interpolation used in the Standford paper above. Unlike linear interpolation that requires 2 input points, cubic interpolation requires 4. In 3 dimensions this results in 64 grid points being used for interpolation at each sample. The performance slowdown is very noticable, but the quality of the smoke even without volumetric rendering is noticably sharper with cubic interpolation enabled:
 
-<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_bottomCubicInterpolation.gif" alt="Alt Text" width="200" height="200">
+<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_bottomCubicInterpolation.gif?raw=true" alt="Alt Text" width="200" height="200">
 
 After implementing the main fluid simulator, I also added a vortex confinement force, also as described in the Stanford paper above, which tries to add back some of the spiraling turbulent patterns that are lost between the interpolation, advection approximations, and finite resolution grid. This force is proportional to the gradient of the curl of the velocity field, and added in makes the simulation look like this:
 
-<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/LerpVortex.gif" alt="Alt Text" width="400" height="400"> (rendered with darker smoke and linear interpolation)
+<img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/LerpVortex.gif?raw=true" alt="Alt Text" width="400" height="400"> (rendered with darker smoke and linear interpolation)
 
 Once the simulation was running well, the last feature I implemented was simple volumetric rendering. The raytracer uses an integrater called "smokeOnly" which marches along each ray and calculates monte carlo direct lighting for each point along the main ray. It does this my sending out rays to each light (stratified and sampled using the same techniques as in homework 2), but instead of using a brdf, it first integrates the smoke field along the ray to get an amount of smoke between the point and the light. 
 
