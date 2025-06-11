@@ -33,17 +33,14 @@ This process involves solving an extremely large linear matrix equation `Ap = b`
 
 With the solver applied (and simple linear interpolation), we get results like this:
 
-<img src="/Smoke_bottom_cg_lerp.gif" alt="Alt Text" width="400" height="400">
+<img src="/Smoke_bottom_cg_lerp.gif" alt="Alt Text" width="200" height="200">
 
 When sampling a point within the grid, interpolation is used to blend between corners of each voxel. Linear interpolation, shown above, works but ends up blending away a lot of finer details. I implemented the monotonic cubic interpolation used in the Standford paper above. Unlike linear interpolation that requires 2 input points, cubic interpolation requires 4. In 3 dimensions this results in 64 grid points being used for interpolation at each sample. The performance slowdown is very noticable, but the quality of the smoke even without volumetric rendering is noticably sharper with cubic interpolation enabled:
-<img src="/SMOKE_bottomCubicInterpolation.gif" alt="Alt Text" width="400" height="400">
 
-The rest of my project will involve the following major steps:
-- Iterative pressure solver for Navier Stokes
-- Vortex confinement external force (makes up for numerical instability and blurring from interpolation)
-- Better volumetric rendering, like direct lighiting and shadows on the smoke.
-- Either adding the volumetric rendering into regular pathtraced scenes, or focusing on getting higher quality smoke renders, including "collisions" with simple geometry
-- Creating smoke emmiter objects that are handled collectively, emmiting with a radius, temperature, and smoke density as described in scene file commands
+<img src="/SMOKE_bottomCubicInterpolation.gif" alt="Alt Text" width="200" height="200">
+
+After implementing the main fluid simulator, I also added a vortex confinement force, also as described in the Stanford paper above, which tries to add back some of the spiraling turbulent patterns that are lost between the interpolation, advection approximations, and finite resolution grid. This force is proportional to the gradient of the curl of the velocity field, and added in makes the simulation look like this:
+<img src="/LerpVortex.gif" alt="Alt Text" width="400" height="400">
 
 
 I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
