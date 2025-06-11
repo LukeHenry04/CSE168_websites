@@ -59,6 +59,9 @@ Here are some of the resulting images and gifs:
 
 Here is a selection of frames from the second animation, rendered with cubic interpolation:
 
+![F4_0](https://github.com/LukeHenry04/CSE168_websites/blob/main/cerp22smoke.png?raw=true)
+![F4_1](https://github.com/LukeHenry04/CSE168_websites/blob/main/cerp24smoke.png?raw=true)
+
 ![F4](https://github.com/LukeHenry04/CSE168_websites/blob/main/CubicPlume.gif?raw=true)
 
 ![F5](https://github.com/LukeHenry04/CSE168_websites/blob/main/20smoke.png?raw=true) ![F6](https://github.com/LukeHenry04/CSE168_websites/blob/main/21smoke.png?raw=true) ![F7](https://github.com/LukeHenry04/CSE168_websites/blob/main/22smoke.png?raw=true)
