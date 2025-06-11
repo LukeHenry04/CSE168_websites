@@ -55,9 +55,11 @@ Here are some of the resulting images and gifs:
 
 ![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) ![F3_1](https://github.com/LukeHenry04/CSE168_websites/blob/main/SmokeFloor1.png?raw=true)
 
-(Note that the above 3 use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8. Also the last animation has artifacts from the large raymarching steps, but I figured it was worth including)
+![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) 
 
-Here is a selection of frames from the second animation, rendered with cubic interpolation:
+(Note that the above images use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8. Also the last animation has artifacts from the large raymarching steps, but I figured it was worth including)
+
+Here is a selection of frames from the same animations, rendered with cubic interpolation:
 
 ![F4_0](https://github.com/LukeHenry04/CSE168_websites/blob/main/cerp22smoke.png?raw=true)
 ![F4_1](https://github.com/LukeHenry04/CSE168_websites/blob/main/cerp24smoke.png?raw=true)
@@ -66,9 +68,6 @@ Here is a selection of frames from the second animation, rendered with cubic int
 
 ![F5](https://github.com/LukeHenry04/CSE168_websites/blob/main/20smoke.png?raw=true) ![F6](https://github.com/LukeHenry04/CSE168_websites/blob/main/21smoke.png?raw=true) ![F7](https://github.com/LukeHenry04/CSE168_websites/blob/main/22smoke.png?raw=true)
 
-Here is the frame before rendered with linear interpolation to show the difference in fine details:
-
-![F8](https://github.com/LukeHenry04/CSE168_websites/blob/main/19smoke.png?raw=true) 
 
 
 (Lastly, for grading, the vast majority of the changes to the raytracer are in the two new files SmokeField.h and SmokeField.cpp, with a minimal amount of changes to Raytracer.cpp::main which handles multi-frame renders and implements volumetric rendering and the main fluid simulation steps through calls to methods in SmokeField.cpp)
