@@ -39,8 +39,9 @@ When sampling a point within the grid, interpolation is used to blend between co
 
 <img src="/SMOKE_bottomCubicInterpolation.gif" alt="Alt Text" width="200" height="200">
 
-After implementing the main fluid simulator, I also added a vortex confinement force, also as described in the Stanford paper above, which tries to add back some of the spiraling turbulent patterns that are lost between the interpolation, advection approximations, and finite resolution grid. This force is proportional to the gradient of the curl of the velocity field, and added in makes the simulation look like this (rendered with darker smoke and linear interpolation):
-<img src="/LerpVortex.gif" alt="Alt Text" width="400" height="400">
+After implementing the main fluid simulator, I also added a vortex confinement force, also as described in the Stanford paper above, which tries to add back some of the spiraling turbulent patterns that are lost between the interpolation, advection approximations, and finite resolution grid. This force is proportional to the gradient of the curl of the velocity field, and added in makes the simulation look like this:
+
+<img src="/LerpVortex.gif" alt="Alt Text" width="400" height="400"> (rendered with darker smoke and linear interpolation)
 
 
 I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
