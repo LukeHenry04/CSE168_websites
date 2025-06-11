@@ -9,6 +9,12 @@ I found this paper from Stanford describing a particular method for rendering sm
 
 Semi-Lagrangian advection is a method for simulating fluid flow that uses a grid of flow velocities. It relies on the assumptions that all relevant fields follow the flow velocity field (are advected through it) and that the velocity at a given point does not change much over the course of a time step. It is used to generate and update a discrete grid of points based on estimates where an analytical or continuous solution to the Navier Stokes equation is unstable or non-existent. 
 
+![2](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_Advection_random.gif?raw=true)
+
+![3](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_GravBuoy_Rise.gif?raw=true)
+
+Both of the gifs above demonstrate the effects of advection, where the smoke moves along with the velocity field. The second gif shows viscosity, gravity and bouyancy forces applied as well.
+
 The Navier Stokes Equation for Incompressible Fluids with constant viscosity is:
 
 ![Nevier Stokes Equation from Wikipedia](https://wikimedia.org/api/rest_v1/media/math/render/svg/e5e8521f648a2a1f7525f4f0dd166bbfbb079b0f)
@@ -23,20 +29,9 @@ The main assumption for incompressible fluids is that the divergence of the velo
 
 (source: wikipedia)
 
-This process involves solving an extremely large linear matrix equation `Ap = b` where A is a sparce matrix that has many 0's. Again, an analytical solution would be far too complex and expensive to compute, so an iterative solver is used instead. In this case, I used the Conjugate Gradient method, which is supposed to converge faster than many other methods for large, symmetric matrices. The matrix `A` in this context is a matrix relating each cell to its 6 nearest neighbors. It contains a row for every pressure value in the field, but most of each row is 0. Multiplying it by a field ultimately means taking a rescaled, weighted sum of the value at each cell with the values at its directly neighboring cells. The conjugate gradient method invilves calculating a search direction based on a residual from `b`, where `b` is simply the divergence of the velocity field, then taking small steps in the search direction and refining each value over multiple iterations. 
+This process involves solving an extremely large linear matrix equation `Ap = b` where A is a sparce matrix that has many 0's. Again, an analytical solution would be far too complex and expensive to compute, so an iterative solver is used instead. In this case, I used the Conjugate Gradient method, which is supposed to converge faster than many other methods for large, symmetric matrices. The matrix `A` in this context is a matrix relating each cell to its 6 nearest neighbors. It contains a row for every pressure value in the field, but most of each row is 0. Multiplying it by a field ultimately means taking a rescaled, weighted sum of the value at each cell with the values at its directly neighboring cells. The conjugate gradient method involves calculating a search direction and step size based on a residual from `b`, where `b` is simply the divergence of the velocity field, then taking small steps in the search direction and refining each value over multiple iterations. 
 
-It is also important to note that sampling between grid points requires some form of interpolation for smoother results, which will also have to be implemented. 
-
-Currently, my project has the following steps implemented:
-- SmokeField class with main methods, variables, and fields
-- The ability to render multiple frames and timesteps
-- Semi-Lagrangian Advection
-- The viscosity times Laplacian(velocity) term from Navier Stokes (implemented with discrete partial derivatives based on the limit definition except h is the spacing between grid points)
-- Gravity force proportional to smoke density at each point
-- Buoyancy force proportional to difference between a given point's temperature and a set ambient temperature
-- A method to inject smoke into the SmokeField
-- A simple method for integrating the amount of smoke along a ray and scaling it's radience down by the amount of smoke passed through
-
+When sampling a point within the grid, interpolation is used to blend between corners of each voxel. Linear interpolation works but ends up blending away a lot of finer details. I implemented the monotonic cubic interpolation used in the Standford paper above. Unlike linear interpolation that requires 2 input points, cubic interpolation requires 4. In 3 dimensions this results in 64 grid points being used for interpolation at each sample. The performance slowdown is very noticable, but the quality of the smoke even without volumetric rendering is noticably sharper with cubic interpolation enabled. 
 The rest of my project will involve the following major steps:
 - Iterative pressure solver for Navier Stokes
 - Vortex confinement external force (makes up for numerical instability and blurring from interpolation)
@@ -46,13 +41,6 @@ The rest of my project will involve the following major steps:
 
 
 I have the following gifs demonstrating (in order) advection with a constant velocity field, advection with a random velocity field, buoyancy and gravity forces on injected smoke (note that the last two gifs contain the viscosity term, but since not much is happening and it is a small effect since smoke is not viscous, it does not show much change):
-
-![1](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_Advection.gif?raw=true)
-
-![2](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_Advection_random.gif?raw=true)
-
-![3](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_GravBuoy_Rise.gif?raw=true)
-
 
 Also note that the pixelated nature of the images is due to a lack of interpolation between grid points, what I have rendered is the grid itself for now. 
 
