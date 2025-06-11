@@ -31,7 +31,7 @@ The main assumption for incompressible fluids is that the divergence of the velo
 
 This process involves solving an extremely large linear matrix equation `Ap = b` where A is a sparce matrix that has many 0's. Again, an analytical solution would be far too complex and expensive to compute, so an iterative solver is used instead. In this case, I used the Conjugate Gradient method, which is supposed to converge faster than many other methods for large, symmetric matrices. The matrix `A` in this context is a matrix relating each cell to its 6 nearest neighbors. It contains a row for every pressure value in the field, but most of each row is 0. Multiplying it by a field ultimately means taking a rescaled, weighted sum of the value at each cell with the values at its directly neighboring cells. The conjugate gradient method involves calculating a search direction and step size based on a residual from `b`, where `b` is the divergence of the velocity field, then taking small steps in the search direction and refining each value over multiple iterations. 
 
-With the solver applied (and simple linear interpolation), we get results like this:
+With the solver applied (and simple linear interpolation between grid points), we get results like this:
 
 <img src="https://github.com/LukeHenry04/CSE168_websites/blob/main/Smoke_bottom_cg_lerp.gif?raw=true" alt="Alt Text" width="200" height="200">
 
