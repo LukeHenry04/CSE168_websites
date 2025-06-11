@@ -13,7 +13,7 @@ Semi-Lagrangian advection is a method for simulating fluid flow that uses a grid
 
 ![3](https://github.com/LukeHenry04/CSE168_websites/blob/main/SMOKE_GravBuoy_Rise.gif?raw=true)
 
-Both of the gifs above demonstrate the effects of advection, where the smoke moves along with the velocity field. The second gif shows viscosity, gravity and bouyancy forces applied as well.
+Both of the gifs above demonstrate the effects of advection, where the smoke moves along with the velocity field. The second gif shows viscosity, gravity and bouyancy forces applied as well. The main reason it does not look like smoke is because it lacks the pressure correction term from the Navier Stokes equation for incompressible fluids.
 
 The Navier Stokes Equation for Incompressible Fluids with constant viscosity is:
 
@@ -30,6 +30,9 @@ The main assumption for incompressible fluids is that the divergence of the velo
 (source: wikipedia)
 
 This process involves solving an extremely large linear matrix equation `Ap = b` where A is a sparce matrix that has many 0's. Again, an analytical solution would be far too complex and expensive to compute, so an iterative solver is used instead. In this case, I used the Conjugate Gradient method, which is supposed to converge faster than many other methods for large, symmetric matrices. The matrix `A` in this context is a matrix relating each cell to its 6 nearest neighbors. It contains a row for every pressure value in the field, but most of each row is 0. Multiplying it by a field ultimately means taking a rescaled, weighted sum of the value at each cell with the values at its directly neighboring cells. The conjugate gradient method involves calculating a search direction and step size based on a residual from `b`, where `b` is simply the divergence of the velocity field, then taking small steps in the search direction and refining each value over multiple iterations. 
+
+With the solver applied, we get results like this:
+
 
 When sampling a point within the grid, interpolation is used to blend between corners of each voxel. Linear interpolation works but ends up blending away a lot of finer details. I implemented the monotonic cubic interpolation used in the Standford paper above. Unlike linear interpolation that requires 2 input points, cubic interpolation requires 4. In 3 dimensions this results in 64 grid points being used for interpolation at each sample. The performance slowdown is very noticable, but the quality of the smoke even without volumetric rendering is noticably sharper with cubic interpolation enabled. 
 The rest of my project will involve the following major steps:
