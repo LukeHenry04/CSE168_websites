@@ -55,7 +55,7 @@ Here are some of the resulting images and gifs:
 
 ![F3](https://github.com/LukeHenry04/CSE168_websites/blob/main/VR_lerp_floor_coarseGrid.gif?raw=true) ![F3_1](https://github.com/LukeHenry04/CSE168_websites/blob/main/SmokeFloor1.png?raw=true)
 
-(Note that the above 3 use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8. Also the last animation has artifacts from the large raymarching steps, but I figured it was worth including still)
+(Note that the above 3 use linear interpolation for longer animations, as rendering multiple frames is significantly more expensive with cubic interpolation, which again uses 64 sample points as opposed to 8. Also the last animation has artifacts from the large raymarching steps, but I figured it was worth including)
 
 Here is a selection of frames from the second animation, rendered with cubic interpolation:
 
